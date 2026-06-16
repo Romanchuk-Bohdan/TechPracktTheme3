@@ -1,96 +1,102 @@
 ﻿{
-  "info": {
-    "name": "Symfony Teams API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Get All Teams",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://127.0.0.1:8000/api/teams",
-          "protocol": "http",
-          "host": ["127", "0", "0", "1"],
-          "port": "8000",
-          "path": ["api", "teams"]
-        }
-      }
+    "info": {
+        "name": "Symfony Teams API",
+        "description": "API документація для управління командами Формули-1, розроблена на базі фреймворку Symfony. Надає повноцінний набір CRUD-операцій для взаємодії з даними команд, включаючи створення, читання, оновлення та видалення записів.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
-    {
-      "name": "Get Single Team",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://127.0.0.1:8000/api/teams/1",
-          "protocol": "http",
-          "host": ["127", "0", "0", "1"],
-          "port": "8000",
-          "path": ["api", "teams", "1"]
-        }
-      }
-    },
-    {
-      "name": "Create Team",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"name\": \"McLaren\",\n    \"principal\": \"Andrea Stella\",\n    \"championships\": 8,\n    \"base\": \"Woking, UK\"\n}"
+    "item": [
+        {
+            "name": "Get All Teams",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "description": "Цей ендпоінт дозволяє отримати повний список усіх команд Формули-1, які наразі збережені в системі. Повертає масив JSON-об'єктів, де кожен об'єкт містить повну інформацію про команду (id, name, principal, championships, base).",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/teams",
+                    "protocol": "http",
+                    "host": ["127", "0", "0", "1"],
+                    "port": "8000",
+                    "path": ["api", "teams"]
+                }
+            }
         },
-        "url": {
-          "raw": "http://127.0.0.1:8000/api/teams",
-          "protocol": "http",
-          "host": ["127", "0", "0", "1"],
-          "port": "8000",
-          "path": ["api", "teams"]
-        }
-      }
-    },
-    {
-      "name": "Update Team",
-      "request": {
-        "method": "PATCH",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"principal\": \"New Principal\"\n}"
+        {
+            "name": "Get Single Team",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "description": "Отримання детальної інформації про конкретну команду за її унікальним ідентифікатором (ID). Якщо команда з вказаним ID не існує, сервер поверне помилку з кодом 404 (Not Found).",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/teams/1",
+                    "protocol": "http",
+                    "host": ["127", "0", "0", "1"],
+                    "port": "8000",
+                    "path": ["api", "teams", "1"]
+                }
+            }
         },
-        "url": {
-          "raw": "http://127.0.0.1:8000/api/teams/1",
-          "protocol": "http",
-          "host": ["127", "0", "0", "1"],
-          "port": "8000",
-          "path": ["api", "teams", "1"]
+        {
+            "name": "Create Team",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "description": "Створення нового запису команди. Тіло запиту має бути у форматі JSON та містити наступні поля: 'name' (назва команди), 'principal' (керівник), 'championships' (кількість титулів) та 'base' (місцезнаходження бази).",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"McLaren\",\n    \"principal\": \"Andrea Stella\",\n    \"championships\": 8,\n    \"base\": \"Woking, UK\"\n}"
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/teams",
+                    "protocol": "http",
+                    "host": ["127", "0", "0", "1"],
+                    "port": "8000",
+                    "path": ["api", "teams"]
+                }
+            }
+        },
+        {
+            "name": "Update Team",
+            "request": {
+                "method": "PATCH",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "description": "Часткове оновлення існуючої команди за її ID. Дозволяє передати лише ті поля, які потребують зміни (наприклад, зміна тільки керівника або кількості титулів). Інші поля залишаться без змін.",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"principal\": \"New Principal\"\n}"
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/teams/1",
+                    "protocol": "http",
+                    "host": ["127", "0", "0", "1"],
+                    "port": "8000",
+                    "path": ["api", "teams", "1"]
+                }
+            }
+        },
+        {
+            "name": "Delete Team",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "description": "Видалення команди з системи за її ідентифікатором (ID). Операція є безповоротною. У разі успіху повертає дані видаленої команди та повідомлення про успішне виконання.",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/teams/1",
+                    "protocol": "http",
+                    "host": ["127", "0", "0", "1"],
+                    "port": "8000",
+                    "path": ["api", "teams", "1"]
+                }
+            }
         }
-      }
-    },
-    {
-      "name": "Delete Team",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "url": {
-          "raw": "http://127.0.0.1:8000/api/teams/1",
-          "protocol": "http",
-          "host": ["127", "0", "0", "1"],
-          "port": "8000",
-          "path": ["api", "teams", "1"]
-        }
-      }
-    }
-  ]
+    ]
 }
