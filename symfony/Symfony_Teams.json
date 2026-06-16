@@ -1,0 +1,96 @@
+﻿{
+  "info": {
+    "name": "Symfony Teams API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Teams",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/teams",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "teams"]
+        }
+      }
+    },
+    {
+      "name": "Get Single Team",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/teams/1",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "teams", "1"]
+        }
+      }
+    },
+    {
+      "name": "Create Team",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"McLaren\",\n    \"principal\": \"Andrea Stella\",\n    \"championships\": 8,\n    \"base\": \"Woking, UK\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/teams",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "teams"]
+        }
+      }
+    },
+    {
+      "name": "Update Team",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"principal\": \"New Principal\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/teams/1",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "teams", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Team",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/teams/1",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "teams", "1"]
+        }
+      }
+    }
+  ]
+}
